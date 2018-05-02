@@ -23,75 +23,35 @@ import java.util.Arrays;
 public class StudentsTwoDimensionalArray implements TwoDimensionalArray {
 
     private int array[][];
-    private int rows = 3;
-    private int columns = 4;
 
 
     //Constructor of the StudentsTwoDimensionalArray
     public StudentsTwoDimensionalArray(int rows, int columns) {
 
-        this.rows = rows;
-        this.columns = columns;
+        array = new int[rows][columns];
+        array[0][0] = 1;
 
-        //calls the method createArray
-        printArray(createArray(rows, columns));
+        for (int i = 0; i < columns; i++) {
 
+            if(i != columns - 1) {
+                array[0][i + 1] = array[0][i] + 3;
+            }
 
+            for (int j = 1; j < rows; j++) {
+                array[j][i] = array[j - 1][i] * 2;
+            }
+        }
     }
 
     /* this method creates a new two dimensional array.
     The size of the array is defined by its parameters rows and columns
-     */
-    private int[][] createArray(int rows, int columns) {
 
-        array = new int[rows][columns];
-
-        array[0][0] = 1;
-
-
-        //
-        for (int i = 0; i < rows - 1; i++) {
-
-            array[i + 1][0] = array[i][0] * 2;
-
-        }
-
-
-        for (int j = 1; j < columns; j++) {
-
-            array[0][j] = array[0][j - 1] + 3;
-
-            for (int i = 1; i < rows; i++) {
-
-                array[i][j] = array[i - 1][j] * 2;
-            }
-
-        }
-
-        return array;
-
-    }
 
     public void printArray (int[][] array) {
         System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "").replace("]]", "").replace("[","").replace("]", "").replace(", ",","));
     }
 
-    /* alternative printArray method
-    private void printArray (int[][] array){
-
-        for(int i = 0; i < array.length; i++){
-            for (int j=0; j < array[i].length; j++){
-
-                if(j != array[i].length - 1)
-                    System.out.print(array[i][j] + ",");
-                else
-                    System.out.print(array[i][j]);
-            }
-            System.out.println();
-        }
-    }
-    */
-
+*/
 
     @Override
     public int getRowAndColumn(int row, int column) {
