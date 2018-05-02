@@ -12,13 +12,7 @@ package de.ur.adp.sbl.array;
 
 import java.util.Arrays;
 
-/**
- * This class should return an array like
- * <p>
- * 1,4,7,10
- * 2,8,14,20
- * 4,16,28,40
- */
+
 
 public class StudentsTwoDimensionalArray implements TwoDimensionalArray {
 
@@ -28,8 +22,12 @@ public class StudentsTwoDimensionalArray implements TwoDimensionalArray {
     //Constructor of the StudentsTwoDimensionalArray
     public StudentsTwoDimensionalArray(int rows, int columns) {
 
+        //defines the size of the two dimensional array with the given rows and columns
         array = new int[rows][columns];
+
+        //the first value of the array is 1
         array[0][0] = 1;
+
 
         for (int i = 0; i < columns; i++) {
 
@@ -43,15 +41,11 @@ public class StudentsTwoDimensionalArray implements TwoDimensionalArray {
         }
     }
 
-    /* this method creates a new two dimensional array.
-    The size of the array is defined by its parameters rows and columns
+    //public void printArray (int[][] array) {
 
+    //System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "").replace("]]", "").replace("[","").replace("]", "").replace(", ",","));
 
-    public void printArray (int[][] array) {
-        System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "").replace("]]", "").replace("[","").replace("]", "").replace(", ",","));
-    }
-
-*/
+    //}
 
     @Override
     public int getRowAndColumn(int row, int column) {
