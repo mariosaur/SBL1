@@ -28,28 +28,36 @@ public class StudentsTwoDimensionalArray implements TwoDimensionalArray {
         //the first value of the array is 1
         array[0][0] = 1;
 
-
+        //fill the array with the values
         for (int i = 0; i < columns; i++) {
 
+            //fills the first row of the array
             if(i != columns - 1) {
                 array[0][i + 1] = array[0][i] + 3;
             }
 
+            //fills every column of the array from top to bottom
             for (int j = 1; j < rows; j++) {
                 array[j][i] = array[j - 1][i] * 2;
             }
         }
+
+        System.out.println(Arrays.deepToString(array)
+                .replace("], ", "]\n")
+                .replace("[[", "")
+                .replace("]]", "")
+                .replace("[","")
+                .replace("]", "")
+                .replace(", ",","));
     }
 
     //public void printArray (int[][] array) {
-
     //System.out.println(Arrays.deepToString(array).replace("], ", "]\n").replace("[[", "").replace("]]", "").replace("[","").replace("]", "").replace(", ",","));
 
-    //}
 
-    @Override
+
+    @Override //method which returns the specific value at the specific position in the array
     public int getRowAndColumn(int row, int column) {
-
         return array[row][column];
     }
 
